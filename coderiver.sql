@@ -3,7 +3,6 @@ create table `user_info`(
 	`name` varchar(32) not null default '',
 	`password` varchar(32) not null default '',
 	`sex` tinyint(1) default '0' comment '性别，0未知 1男 2女',
-	`token` varchar(64) default '' comment 'token',
 	`tel` varchar(16) default '' comment '电话',
 	`email` varchar(32) default '' comment '邮箱',
 	`avatar` varchar(512) default '' comment '头像',

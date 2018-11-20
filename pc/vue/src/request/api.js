@@ -2,7 +2,7 @@
 import axios from './http'
 import qs from 'query-string'
 
-const base = "http://localhost:8899";
+const base = "http://localhost:8084";
 
 /**
  * api请求方法
@@ -11,18 +11,30 @@ const base = "http://localhost:8899";
 export default {
 
   login(params){
-    return axios.post(`${base}/api/uaa/oauth/login`, qs.stringify(params))
+    return axios.post(`${base}/user/login`, qs.stringify(params))
   },
 
   register(params){
-    let p = qs.stringify(params);
-    console.log("stringify: ", p);
-    return axios.post(`${base}/user/registry`, {params: p})
+    return axios.post(`${base}/user/register`, qs.stringify(params))
   },
 
-  getOrderList(params){
-    return axios.get(`${base}/buyer/order/list?openid=wxopenid666`)
+  /**
+   * 获取所有的角色
+   * @returns {*}
+   */
+  getAllRoles(){
+    return axios.get(`${base}/user/get-roles`)
+  },
+
+  /**
+   * 获取所有的经验
+   * @returns {*}
+   */
+  getAllExperiences(){
+    return axios.get(`${base}/user/get-experiences`)
   }
+
+
 
 
 }
